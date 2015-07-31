@@ -1,12 +1,28 @@
-# Import flask dependencies
-from flask import Blueprint, request, render_template, \
-                  flash, g, session, redirect, url_for
+# Import flask and template operators
+from flask import Flask, render_template
 
-# Import password / encryption helper tools
-from werkzeug import check_password_hash, generate_password_hash
+# Import SQLAlchemy
+from flask.ext.sqlalchemy import SQLAlchemy
 
-# Import the database object from the main app module
-from app import db
+# Define the WSGI application object
+app = Flask(__name__)
+
+# Configurations
+app.config.from_object('config')
+
+# Define the database object which is imported
+# by modules and controllers
+db = SQLAlchemy(app)
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
+# Register blueprint(s)
+from app.reddit_links.controllers import reddit_link as reddit_link_module
+
+# Build the database:
+db.create_all()
 
 # Set the route and accepted methods
 @app.route('/', methods=['GET'])
