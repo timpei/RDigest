@@ -11,7 +11,7 @@ class RedditLink(db.Model):
 
     id = db.Column(db.String(20), primary_key=True)
 
-    url = db.Column(db.String(250), unique=True)
+    url = db.Column(db.String(250))
     title = db.Column(db.String(250))
     score = db.Column(db.Integer)
     downs = db.Column(db.Integer)
@@ -35,8 +35,8 @@ class RedditLink(db.Model):
 
 
     # New instance instantiation procedure
-    def __init__(**kwargs):
-
+    def __init__(self, *args, **kwargs):
+        self.id              = kwargs['id']
         self.url             = kwargs['url']
         self.title           = kwargs['title']
         self.score           = kwargs['score']

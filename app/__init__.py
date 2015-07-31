@@ -21,6 +21,8 @@ def not_found(error):
 # Register blueprint(s)
 from app.reddit_links.controllers import reddit_link as reddit_link_module
 
+app.register_blueprint(reddit_link_module)
+
 # Build the database:
 db.create_all()
 
