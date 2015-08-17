@@ -3,6 +3,7 @@ from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
 import os, inspect, sys, json, urllib2
+import datetime
 
 cmd_folder = os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe() ))[0])
 sys.path.append(cmd_folder+'/../')
@@ -29,4 +30,6 @@ for link in links['data']['children']:
 
 db.session.commit()
 
-print "%d links found, %d new" % (len(links['data']['children']), new)
+time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+
+print "[%s] %d links found, %d new" % (time, len(links['data']['children']), new)
