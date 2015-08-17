@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 
-url = "http://www.reddit.com/r/news/hot.json?limit=100"
+url = "http://www.reddit.com/r/news/top.json?limit=100"
 links = json.loads(urllib2.urlopen(url).read())
 
 new = 0

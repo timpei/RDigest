@@ -14,7 +14,7 @@ reddit_link = Blueprint('reddit_link', __name__, url_prefix='/api/reddit_link')
 
 @reddit_link.route('/get_links/', methods=['GET'])
 def getLinks():
-	url = "http://www.reddit.com/r/news/hot.json?limit=100"
+	url = "http://www.reddit.com/r/news/top.json?limit=100"
 	links = json.loads(urllib2.urlopen(url).read())
 
 	for link in links['data']['children']:
