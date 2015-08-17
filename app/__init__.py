@@ -19,7 +19,7 @@ def not_found(error):
     return render_template('404.html'), 404
 
 # Register blueprint(s)
-from app.reddit_links.controllers import reddit_link as reddit_link_module
+from reddit_links.controllers import reddit_link as reddit_link_module
 
 app.register_blueprint(reddit_link_module)
 
