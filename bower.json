@@ -1,0 +1,22 @@
+{
+  "name": "RDigest",
+  "version": "0.0.0",
+  "homepage": "https://github.com/timpei/RDigest",
+  "authors": [
+    "timpei <timtimpei@hotmail.com>"
+  ],
+  "main": "__init__.py",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "./app/static/bower_components",
+    "test",
+    "tests"
+  ],
+  "directory": "./app/static/bower_components",
+  "dependencies": {
+    "angular": "~1.4.4",
+    "bootstrap": "~3.3.5"
+  }
+}

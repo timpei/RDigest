@@ -6,3 +6,6 @@ env*
 dist
 *.db
 log
+
+
+bower_components
