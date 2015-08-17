@@ -3,8 +3,8 @@ from flask import Blueprint, request, render_template, \
                   flash, g, session, redirect, url_for, jsonify
 
 # Import the database object from the main app module
-from app import db
-from app.reddit_links.models import RedditLink
+from .. import db
+from models import RedditLink
 
 import urllib2
 import json
