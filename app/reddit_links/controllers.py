@@ -1,6 +1,6 @@
 # Import flask dependencies
 from flask import Blueprint, request, render_template, \
-                  flash, g, session, redirect, url_for, jsonify
+                  flash, g, session, redirect, url_for, jsonify, json
 
 # Import the database object from the main app module
 from .. import db
@@ -28,3 +28,15 @@ def getLinks():
 
 
 	return jsonify(**links)
+
+links = Blueprint('links', __name__, url_prefix='/api')
+
+@links.route('/links', methods=['GET'])
+def goHome():
+	links = RedditLink.query.all();
+	response = []
+	for l in links:
+		link = l.serialize()
+		response.append(link)
+	#link = jsonify(RedditLink.query.first().serialize())
+	return jsonify({'data':response})

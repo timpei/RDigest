@@ -1,0 +1,42 @@
+<html lang="en" ng-app="rdigestApp">
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.css') }}">
+<link rel="stylesheet/less" type="text/css" href="{{ url_for('static', filename='stylesheets/index.less') }}">
+<script src="{{ url_for('static', filename='bower_components/angular/angular.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bower_components/crossfilter/crossfilter.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bower_components/less/dist/less.min.js') }}"></script>
+<script src="{{ url_for('static', filename='controller.js') }}"></script>
+<head></head>
+
+<body ng-controller="RDigestCtrl" class="clearfix">
+<div id="header" class="row">
+  <div id="logo" class="col-md-4 h1">RDigest</div>
+</div>
+<div id="subreddits" class="row"> 
+  <span>/r/NEWS</span>
+  <span>/r/FUNNY</span>
+  <span>/r/PICS</span>
+</div>
+<div class="container">
+<div class="content row" ng-repeat="(key, value) in posts">
+  <div class="date row">{{ value.datestring | angular }}</div>
+  <div class="post row" ng-repeat="post in value.entries">
+  	<div class="vote col-md-1">{{ post.ups | angular }}</div>
+  	<div class="img-thumbnail col-md-1"></div>
+  	<div class="article col-md-10">
+      <div class="title"> <a href="{{ post.url | angular }}"> {{ post.title | angular }} </a> </div>
+      <div class="author">Submitted by {{ post.author | angular }}</div>
+      <div class="details row">
+        <div class="commentnum col-md-4">Comments: {{ post.num_comments | angular }}</div>
+        <div class="gold">Gold: {{ post.gilded | angular }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+
+
+</html>

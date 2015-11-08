@@ -60,4 +60,30 @@ class RedditLink(db.Model):
         self.permalink       = kwargs['permalink']
 
     def __repr__(self):
-        return '<RLink %r>' % (self.permalink)   
+        return '<RLink %r>' % (self.permalink)
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'url': self.url,
+            'title': self.title,
+            'score': self.score,
+            'downs': self.downs,
+            'ups': self.ups,
+            'created': str(self.created),
+            'created_utc': str(self.created_utc.date()),
+            'author': self.author,
+            'domain': self.domain,
+            'banned_by': self.banned_by,
+            'selftext_html': self.selftext_html,
+            'selftext': self.selftext,
+            'link_flair_text': self.link_flair_text,
+            'subreddit': self.subreddit,
+            'gilded': self.gilded,
+            'over_18': self.over_18,
+            'num_comments': self.num_comments,
+            'thumbnail': self.thumbnail,
+            'subreddit_id': self.subreddit_id,
+            'is_self': self.is_self,
+            'permalink': self.permalink,
+        }
