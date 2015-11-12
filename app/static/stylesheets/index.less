@@ -1,0 +1,48 @@
+
+@font-family: 'Verdana', Geneva, sans-serif;
+
+*{
+	font-family: @font-family;
+}
+
+.date{
+	text-align: center;
+}
+.vote{
+	text-align: center;
+}
+.content{
+	.title, .vote{
+		font-weight: 900;
+		font-size: 125%;
+	}
+	.title{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.author{
+		font-size: 125%;
+	}
+}
+
+#subreddits{
+	background-color: gray;
+	height: 50px;
+	width: 100%;
+
+	span{
+		.menutext();
+		padding-right: 30px;
+	}
+}
+#header{
+	margin: 0;
+}
+
+.menutext(){
+	font-size: 250%;
+	font-weight: 900;
+	color: white;
+	margin: 0 auto;
+}

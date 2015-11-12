@@ -15,16 +15,18 @@
   <div id="logo" class="col-md-4 h1">RDigest</div>
 </div>
 <div id="subreddits" class="row"> 
+  <div class="container">
   <span>/r/NEWS</span>
   <span>/r/FUNNY</span>
   <span>/r/PICS</span>
+  </div>
 </div>
 <div class="container">
 <div class="content row" ng-repeat="(key, value) in posts">
   <div class="date row">{{ value.datestring | angular }}</div>
   <div class="post row" ng-repeat="post in value.entries">
   	<div class="vote col-md-1">{{ post.ups | angular }}</div>
-  	<div class="img-thumbnail col-md-1"></div>
+  	<img src="http://placehold.it/100x100" class="img-responsive col-md-1">
   	<div class="article col-md-10">
       <div class="title"> <a href="{{ post.url | angular }}"> {{ post.title | angular }} </a> </div>
       <div class="author">Submitted by {{ post.author | angular }}</div>
