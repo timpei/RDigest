@@ -1,15 +1,19 @@
 
 @font-family: 'Verdana', Geneva, sans-serif;
 
-*{
+* {
 	font-family: @font-family;
 }
 
 .date{
 	text-align: center;
+	font-size: 200%;
+
+	margin: 1em;
 }
 .vote{
 	text-align: center;
+	padding: 1em;
 }
 .content{
 	.title, .vote{
@@ -17,9 +21,18 @@
 		font-size: 125%;
 	}
 	.title{
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		a {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			text-decoration: none;
+			display: block;
+			color: black;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 	.author{
 		font-size: 125%;
